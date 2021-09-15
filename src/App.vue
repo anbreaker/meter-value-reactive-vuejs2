@@ -2,6 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
 
+    <MeterComponet :meterConf="meterConf"/> 
     <PropsVue
       msg="Simple Visual <meter/> html Configuration"
       :meterConf="meterConf"
@@ -10,12 +11,14 @@
 </template>
 
 <script>
+import MeterComponet from './components/MeterComponet.vue';
 import PropsVue from "./components/PropsVue";
+
 
 export default {
   name: "App",
 
-  components: { PropsVue },
+  components: { PropsVue , MeterComponet},
 
   data() {
     return {
@@ -25,7 +28,9 @@ export default {
         low: 3,
         high: 5,
         optimum: 6,
-        value: 7
+        value: 3,
+
+        peak: 8
       }
     };
   }

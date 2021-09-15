@@ -61,7 +61,9 @@ export default {
       low: { type: Number, required: true },
       high: { type: Number, required: true },
       optimum: { type: Number, required: true },
-      value: { type: Number, required: true }
+      value: { type: Number, required: true },
+
+      peak: { type: Number, required: true }
     }
   },
 
