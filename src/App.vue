@@ -2,7 +2,10 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
 
-    <PropsVue msg="Welcome to Your Vue.js App" :values="values" />
+    <PropsVue
+      msg="Simple Visual <meter/> html Configuration"
+      :meterConf="meterConf"
+    />
   </div>
 </template>
 
@@ -12,13 +15,11 @@ import PropsVue from "./components/PropsVue";
 export default {
   name: "App",
 
-  components: {
-    PropsVue
-  },
+  components: { PropsVue },
 
   data() {
     return {
-      values: {
+      meterConf: {
         min: 0,
         max: 10,
         low: 3,

@@ -5,23 +5,41 @@
 
     <meter
       class="meter-container"
-      :min="values.min"
-      :max="values.max"
-      :low="values.low"
-      :high="values.high"
-      :optimum="values.optimum"
-      :value="values.value"
+      :min="meterConf.min"
+      :max="meterConf.max"
+      :low="meterConf.low"
+      :high="meterConf.high"
+      :optimum="meterConf.optimum"
+      :value="meterConf.value"
     ></meter>
 
     <ul>
-      <li v-for="(value, index) in values" :key="index">
+      <li v-for="(value, index) in meterConf" :key="index">
         {{ index }} {{ value }}
-        <button @click="changeValue(index, 'sum')">+</button>
         <button @click="changeValue(index, 'rest')">-</button>
+        <button @click="changeValue(index, 'sum')">+</button>
       </li>
     </ul>
 
-    <h2>Object Props</h2>
+    <h2><b>meter for Chrome</b></h2>
+
+    <p>
+      Below <u><b>low</b></u
+      >: default Color RED
+    </p>
+    <p>
+      Equal to <u><b>low</b></u> to <u><b>high</b></u
+      >: default Color Orange
+    </p>
+    <p>
+      Equal to <u><b>high</b></u> to <u><b>max</b></u
+      >: default Color Green
+    </p>
+
+    <p>
+      You should open the Developer tools and use the extension of Chrome of
+      VueJsBeta and console.
+    </p>
 
     <button @click="showProps">Show Props</button>
   </div>
@@ -37,7 +55,7 @@ export default {
       required: true
     },
 
-    values: {
+    meterConf: {
       min: { type: Number, required: true },
       max: { type: Number, required: true },
       low: { type: Number, required: true },
@@ -53,8 +71,8 @@ export default {
     },
 
     changeValue(index, type) {
-      if (type === "sum") this.values[index]++;
-      else this.values[index]--;
+      if (type === "sum") this.meterConf[index]++;
+      else this.meterConf[index]--;
     }
   }
 };
@@ -70,10 +88,11 @@ ul {
   padding: 0;
 }
 li {
+  font-size: 1.5rem;
   display: inline-block;
   margin: 0 10px;
 }
-a {
+u {
   color: #42b983;
 }
 
